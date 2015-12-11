@@ -1,0 +1,12 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+includedir=@includedir@
+libdir=@libdir@
+
+Name: EventLoop
+Description: Generic asynchronous event loop
+URL: http://example.com/
+Version: @PACKAGE_VERSION@
+Cflags: -I${includedir} --std=c++11
+Libs: -L${libdir} -lEventLoop
+Libs.private:

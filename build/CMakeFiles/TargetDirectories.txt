@@ -1,0 +1,7 @@
+/BB/bb_eventloop/build/src/examples/CMakeFiles/EchoClient.dir
+/BB/bb_eventloop/build/src/examples/CMakeFiles/EchoServer1.dir
+/BB/bb_eventloop/build/src/examples/CMakeFiles/EchoServer2.dir
+/BB/bb_eventloop/build/src/lib/CMakeFiles/EventLoop.dir
+/BB/bb_eventloop/build/src/lib/CMakeFiles/EventLoop_static.dir
+/BB/bb_eventloop/build/src/examples/CMakeFiles/SeqPacketEchoClient.dir
+/BB/bb_eventloop/build/src/examples/CMakeFiles/SeqPacketEchoServer.dir

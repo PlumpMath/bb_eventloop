@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/EchoServer2.dir/EchoServer2/main.cpp.o CMakeFiles/EchoServer2.dir/EchoServer1/EchoServer.cpp.o  -o EchoServer2 -rdynamic ../lib/libEventLoop.so.0.0.0 -lboost_system -lboost_thread -lboost_regex -lboost_date_time -Wl,-rpath,/BB/bb_eventloop/build/src/lib: 

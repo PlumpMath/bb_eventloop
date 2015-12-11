@@ -1,0 +1,13 @@
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.epxVCW
+Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.glMOAz
+Processing files: eventloop-0.1.1-1.x86_64
+Provides: eventloop = 0.1.1-1 eventloop(x86-64) = 0.1.1-1
+Requires(interp): /bin/sh /bin/sh /bin/sh /bin/sh
+Requires(rpmlib): rpmlib(FileDigests) <= 4.6.0-1 rpmlib(PayloadFilesHavePrefix) <= 4.0-1 rpmlib(CompressedFileNames) <= 3.0.4-1
+Requires(pre): /bin/sh
+Requires(post): /bin/sh
+Requires(preun): /bin/sh
+Requires(postun): /bin/sh
+Checking for unpackaged file(s): /usr/lib/rpm/check-files /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/EventLoop-0.1.1-Linux
+Wrote: /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/EventLoop-0.1.1-Linux.rpm
+Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.d39NeT

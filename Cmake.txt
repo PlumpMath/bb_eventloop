@@ -1,0 +1,187 @@
+
+set(BASE_CPPFLAGS "-Wall -Werror -Wextra")
+#set(libEventLoop_la_CPPFLAGS ${BASE_CPPFLAGS}" -D_GNU_SOURCE -Wno-missing-field-initializers")
+set(ACLOCAL_AMFLAGS m4)
+add_definitions(-Wall -Werror -Wextra -D_GNU_SOURCE -Wno-missing-field-initializers -std=c++11)
+#ADD_DEFINITIONS(-DBoost_USE_STATIC_LIBS=ON)
+
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+set(libEventLoop_la_SOURCES  src/lib/Abort.cpp
+                            src/lib/AsyncRunner.cpp
+                            src/lib/BaseEpollRunner.cpp
+                            src/lib/CallbackQueue.cpp
+                            src/lib/Callee.cpp
+                            src/lib/ChildProcess.cpp
+                            src/lib/ControlMessage.cpp
+                            src/lib/DumpCreator.cpp
+                            src/lib/DumpFormatter.cpp
+                            src/lib/DumpUtils.cpp
+                            src/lib/Epoll.cpp
+                            src/lib/EpollRunner.cpp
+                            src/lib/FDListener.cpp
+                            src/lib/FDListenerMap.cpp
+                            src/lib/FDMonitor.cpp
+                            src/lib/FileDescriptor.cpp
+                            src/lib/ListeningSocket.cpp
+                            src/lib/MockableRunner.cpp
+                            src/lib/Runner.cpp
+                            src/lib/SeqPacketSocket.cpp
+                            src/lib/SignalSet.cpp
+                            src/lib/SigPipeSuppressor.cpp
+                            src/lib/SocketAddress.cpp
+                            src/lib/StreamBuffer.cpp
+                            src/lib/StreamSocket.cpp
+                            src/lib/System.cpp
+                            src/lib/SystemException.cpp
+                            src/lib/Timer.cpp
+                            src/lib/TimerQueue.cpp
+                            src/lib/TypeName.cpp
+                            src/lib/UncaughtExceptionHandler.cpp)
+
+add_library(EventLoop SHARED ${libEventLoop_la_SOURCES})
+find_library(boostthread boost_thread /usr/lib64)
+find_library(boostregex boost_regex /usr/lib64)
+find_library(boostdate boost_date_time /usr/lib64)
+if(boostthread)
+    message(STATUS "path " ${boostthread})
+    message(STATUS "path " ${boostregex})
+    message(STATUS "path " ${boostdate})
+endif(boostthread)
+TARGET_LINK_LIBRARIES(EventLoop ${boostthread} ${boostregex} ${boostdate})
+
+if(EXAMPLE)
+set(EchoServer1_SOURCES src/examples/EchoServer1/EchoServer.cpp
+                        src/examples/EchoServer1/main.cpp
+                        include/examples/EchoServer.hpp)
+add_executable(EchoServer1 ${EchoServer1_SOURCES})
+add_dependencies(EchoServer1 EventLoop)
+
+set(EchoServer2_SOURCE src/examples/EchoServer2/main.cpp
+                src/examples/EchoServer1/EchoServer.cpp
+                include/examples/EchoServer.hpp)
+add_executable(EchoServer2 ${EchoServer2_SOURCES})
+add_dependencies(EchoServer2 EventLoop)
+
+set(EchoClient_SOURCE src/examples/EchoClient/main.cpp)
+add_executable(EchoClient ${EchoClient_SOURCES})
+add_dependencies(EchoClient EventLoop)
+
+set(SeqPacketEchoServer_SOURCE src/examples/SeqPacketEchoServer/main.cpp)
+add_executable(SeqPacketEchoServer ${SeqPacketEchoServer_SOURCE})
+add_dependencies(SeqPacketEchoServer EventLoop)
+
+set(SeqPacketEchoClient_SOURCE src/examples/SeqPacketEchoClient/main.cpp)
+add_executable(SeqPacketEchoClient ${SeqPacketEchoClient_SOURCE})
+add_dependencies(SeqPacketEchoClient EventLoop)
+
+endif(EXAMPLE)
+
+
+
+
+set(GMOCK_SRC 3rdparty/gmock/gtest/include/gtest/gtest-death-test.h
+              3rdparty/gmock/gtest/include/gtest/gtest.h
+              3rdparty/gmock/gtest/include/gtest/gtest-message.h
+              3rdparty/gmock/gtest/include/gtest/gtest-param-test.h
+              3rdparty/gmock/gtest/include/gtest/gtest_pred_impl.h
+              3rdparty/gmock/gtest/include/gtest/gtest-printers.h
+              3rdparty/gmock/gtest/include/gtest/gtest_prod.h
+              3rdparty/gmock/gtest/include/gtest/gtest-spi.h
+              3rdparty/gmock/gtest/include/gtest/gtest-test-part.h
+              3rdparty/gmock/gtest/include/gtest/gtest-typed-test.h
+              3rdparty/gmock/gtest/include/gtest/internal/gtest-death-test-internal.h
+              3rdparty/gmock/gtest/include/gtest/internal/gtest-filepath.h
+              3rdparty/gmock/gtest/include/gtest/internal/gtest-internal.h
+              3rdparty/gmock/gtest/include/gtest/internal/gtest-linked_ptr.h
+              3rdparty/gmock/gtest/include/gtest/internal/gtest-param-util-generated.h
+              3rdparty/gmock/gtest/include/gtest/internal/gtest-param-util.h
+              3rdparty/gmock/gtest/include/gtest/internal/gtest-port.h
+              3rdparty/gmock/gtest/include/gtest/internal/gtest-string.h
+              3rdparty/gmock/gtest/include/gtest/internal/gtest-tuple.h
+              3rdparty/gmock/gtest/include/gtest/internal/gtest-type-util.h
+              3rdparty/gmock/gtest/src/gtest.cc
+              3rdparty/gmock/gtest/src/gtest-death-test.cc
+              3rdparty/gmock/gtest/src/gtest-filepath.cc
+              3rdparty/gmock/gtest/src/gtest-internal-inl.h
+              3rdparty/gmock/gtest/src/gtest-port.cc
+              3rdparty/gmock/gtest/src/gtest-printers.cc
+              3rdparty/gmock/gtest/src/gtest-test-part.cc
+              3rdparty/gmock/gtest/src/gtest-typed-test.cc
+              3rdparty/gmock/include/gmock/gmock-actions.h
+              3rdparty/gmock/include/gmock/gmock-cardinalities.h
+              3rdparty/gmock/include/gmock/gmock-generated-actions.h
+              3rdparty/gmock/include/gmock/gmock-generated-function-mockers.h
+              3rdparty/gmock/include/gmock/gmock-generated-matchers.h
+              3rdparty/gmock/include/gmock/gmock-generated-nice-strict.h
+              3rdparty/gmock/include/gmock/gmock.h
+              3rdparty/gmock/include/gmock/gmock-matchers.h
+              3rdparty/gmock/include/gmock/gmock-more-actions.h
+              3rdparty/gmock/include/gmock/gmock-more-matchers.h
+              3rdparty/gmock/include/gmock/gmock-spec-builders.h
+              3rdparty/gmock/include/gmock/internal/gmock-generated-internal-utils.h
+              3rdparty/gmock/include/gmock/internal/gmock-internal-utils.h
+              3rdparty/gmock/include/gmock/internal/gmock-port.h
+              3rdparty/gmock/src/gmock-cardinalities.cc
+              3rdparty/gmock/src/gmock.cc
+              3rdparty/gmock/src/gmock-internal-utils.cc
+              3rdparty/gmock/src/gmock-matchers.cc
+              3rdparty/gmock/src/gmock-spec-builders.cc)
+
+set(testrunner_SOURCES ${GMOCK_SRC}
+                       tst/AsyncRunnerTest.cpp
+                       tst/BaseEpollRunnerTest.cpp
+                       tst/CallbackQueueTest.cpp
+                       tst/CalleeTest.cpp
+                       tst/ChildProcessTest.cpp
+                       tst/ControlMessageTest.cpp
+                       tst/DumpCreatorTest.cpp
+                       tst/DumpFormatterTest.cpp
+                       tst/DumpTest.cpp
+                       tst/DumpUtilsTest.cpp
+                       tst/EpollRunnerTest.cpp
+                       tst/EpollRunnerWithoutSignalsTest.cpp
+                       tst/EpollRunnerWithSignalsTest.cpp
+                       tst/EpollTest.cpp
+                       tst/ExceptionTest.cpp
+                       tst/FDListenerMapTest.cpp
+                       tst/FDListenerTest.cpp
+                       tst/FDMonitorTest.cpp
+                       tst/FileDescriptorTest.cpp
+                       tst/ListeningSocketTest.cpp
+                       tst/main.cpp
+                       tst/PostponeDeletionTest.cpp
+                       tst/RunnerTest.cpp
+                       tst/SeqPacketSocketMock.cpp
+                       tst/SeqPacketSocketTest.cpp
+                       tst/SignalSetTest.cpp
+                       tst/SocketAddressTest.cpp
+                       tst/StreamBufferTest.cpp
+                       tst/StreamSocketTest.cpp
+                       tst/SystemExceptionTest.cpp
+                       tst/SystemTest.cpp
+                       tst/TimerQueueTest.cpp
+                       tst/TimerTest.cpp
+                       tst/TypeNameTest.cpp
+                       tst/UncaughtExceptionHandlerTest.cpp
+                       tst/WeakCallbackTest.cpp
+                       include/private/tst/AsyncRunnerMock.hpp
+                       include/private/tst/BaseEpollRunnerMock.hpp
+                       include/private/tst/DummyFDListenerMap.hpp
+                       include/private/tst/DumpTestHelper.hpp
+                       include/private/tst/DumpTest.hpp
+                       include/private/tst/EpollRunnerMock.hpp
+                       include/private/tst/FDListenerMock.hpp
+                       include/private/tst/ListeningSocketMock.hpp
+                       include/private/tst/SeqPacketSocketMock.hpp
+                       include/private/tst/StreamSocketMock.hpp
+                       include/private/tst/SystemMock.hpp
+                       include/private/tst/TimerQueueMock.hpp)
+#add_executable(testrunner ${testrunner_SOURCES})
+#set(testrunner_CPPFLAGS  ${BASE_CPPFLAGS} -Wno-missing-field-initializers)
+#add_definitions(testrunner_CPPFLAGS)
+#TARGET_LINK_LIBRARIES(EventLoop boost_system)
+
+
+
+

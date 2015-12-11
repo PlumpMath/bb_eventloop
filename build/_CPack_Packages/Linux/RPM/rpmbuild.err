@@ -1,0 +1,55 @@
++ umask 022
++ cd /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/BUILD
++ mv /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/EventLoop-0.1.1-Linux /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/tmpBBroot
++ exit 0
++ umask 022
++ cd /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/BUILD
++ '[' /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/EventLoop-0.1.1-Linux '!=' / ']'
++ rm -rf /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/EventLoop-0.1.1-Linux
+++ dirname /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/EventLoop-0.1.1-Linux
++ mkdir -p /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM
++ mkdir /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/EventLoop-0.1.1-Linux
++ '[' -e /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/EventLoop-0.1.1-Linux ']'
++ rm -rf /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/EventLoop-0.1.1-Linux
++ mv /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/tmpBBroot /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/EventLoop-0.1.1-Linux
++ /usr/lib/rpm/check-buildroot
++ /usr/lib/rpm/redhat/brp-compress
++ /usr/lib/rpm/redhat/brp-strip /usr/bin/strip
++ /usr/lib/rpm/redhat/brp-strip-comment-note /usr/bin/strip /usr/bin/objdump
++ /usr/lib/rpm/redhat/brp-strip-static-archive /usr/bin/strip
++ /usr/lib/rpm/brp-python-bytecompile /usr/bin/python 1
++ /usr/lib/rpm/redhat/brp-python-hardlink
++ /usr/lib/rpm/redhat/brp-java-repack-jars
+warning: File listed twice: /usr/include/EventLoop
+warning: File listed twice: /usr/include/EventLoop/AsyncRunner.hpp
+warning: File listed twice: /usr/include/EventLoop/Callee.hpp
+warning: File listed twice: /usr/include/EventLoop/ChildProcess.hpp
+warning: File listed twice: /usr/include/EventLoop/ControlMessage.hpp
+warning: File listed twice: /usr/include/EventLoop/DumpCreator.hpp
+warning: File listed twice: /usr/include/EventLoop/DumpUtils.hpp
+warning: File listed twice: /usr/include/EventLoop/Dumpable.hpp
+warning: File listed twice: /usr/include/EventLoop/EpollRunner.hpp
+warning: File listed twice: /usr/include/EventLoop/Exception.hpp
+warning: File listed twice: /usr/include/EventLoop/FDListener.hpp
+warning: File listed twice: /usr/include/EventLoop/FileDescriptor.hpp
+warning: File listed twice: /usr/include/EventLoop/ListeningSocket.hpp
+warning: File listed twice: /usr/include/EventLoop/PostponeDeletion.hpp
+warning: File listed twice: /usr/include/EventLoop/Runner.hpp
+warning: File listed twice: /usr/include/EventLoop/SeqPacketSocket.hpp
+warning: File listed twice: /usr/include/EventLoop/SignalSet.hpp
+warning: File listed twice: /usr/include/EventLoop/SocketAddress.hpp
+warning: File listed twice: /usr/include/EventLoop/StreamBuffer.hpp
+warning: File listed twice: /usr/include/EventLoop/StreamSocket.hpp
+warning: File listed twice: /usr/include/EventLoop/SystemException.hpp
+warning: File listed twice: /usr/include/EventLoop/Timer.hpp
+warning: File listed twice: /usr/include/EventLoop/TimerPosition.hpp
+warning: File listed twice: /usr/include/EventLoop/TypeName.hpp
+warning: File listed twice: /usr/include/EventLoop/UncaughtExceptionHandler.hpp
+warning: File listed twice: /usr/include/EventLoop/WeakCallback.hpp
+warning: File listed twice: /usr/include/EventLoop/doxygen.hpp
+warning: File listed twice: /usr/include/EventLoop/tst
+warning: File listed twice: /usr/include/EventLoop/tst/MockableRunner.hpp
+warning: File listed twice: /usr/include/EventLoop/tst/doxygen.hpp
++ umask 022
++ cd /BB/bb_eventloop/build/_CPack_Packages/Linux/RPM/BUILD
++ exit 0

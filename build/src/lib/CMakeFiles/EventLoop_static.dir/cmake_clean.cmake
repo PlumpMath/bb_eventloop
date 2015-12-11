@@ -1,0 +1,40 @@
+FILE(REMOVE_RECURSE
+  "CMakeFiles/EventLoop_static.dir/Abort.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/AsyncRunner.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/BaseEpollRunner.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/CallbackQueue.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/Callee.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/ChildProcess.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/ControlMessage.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/DumpCreator.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/DumpFormatter.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/DumpUtils.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/Epoll.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/EpollRunner.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/FDListener.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/FDListenerMap.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/FDMonitor.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/FileDescriptor.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/ListeningSocket.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/MockableRunner.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/Runner.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/SeqPacketSocket.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/SignalSet.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/SigPipeSuppressor.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/SocketAddress.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/StreamBuffer.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/StreamSocket.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/System.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/SystemException.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/Timer.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/TimerQueue.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/TypeName.cpp.o"
+  "CMakeFiles/EventLoop_static.dir/UncaughtExceptionHandler.cpp.o"
+  "libEventLoop.pdb"
+  "libEventLoop.a"
+)
+
+# Per-language clean rules from dependency scanning.
+FOREACH(lang CXX)
+  INCLUDE(CMakeFiles/EventLoop_static.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)
